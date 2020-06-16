@@ -1,0 +1,42 @@
+---
+- :name: puppetserver 
+  :basebox: bento/centos-7
+  :bootstrap: centos7_puppetmaster.sh
+  :memory: 2048
+  :aliases: 
+    - puppet
+    - puppetmaster.lab1
+    - puppetca.lab1
+
+- :name: devops01
+  :basebox: bento/centos-7
+  :bootstrap: centos7_devops.sh 
+  :memory: 4096
+  :cpus: 4 
+  :aliases:
+    - git 
+    - jenkins
+
+- :name: kub-master01
+  :basebox: ubuntu/xenial64
+  :bootstrap: ubuntu.sh
+  :ip: 192.168.200.102
+  :cpus: 2
+  :memory: 2048
+  :aliases:
+    - kubernetes-master
+
+- :name: kub-node01
+  :basebox: ubuntu/xenial64 
+  :bootstrap: ubuntu.sh
+  :ip: 192.168.200.104
+  :cpus: 2 
+  :memory: 3075 
+
+- :name: kub-node02
+  :basebox: ubuntu/xenial64
+  :bootstrap: ubuntu.sh
+  :ip: 192.168.200.103
+  :cpus: 2
+  :memory: 3075 
+
