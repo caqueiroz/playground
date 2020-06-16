@@ -1,0 +1,7 @@
+role_mappings:
+  puppetserver: 'puppet_server'
+  devops01: 'devops_server'
+  kub-master01: 'kubernetes_master'
+  kub-node01: 'kubernetes_node'
+  kub-node02: 'kubernetes_node'
+
