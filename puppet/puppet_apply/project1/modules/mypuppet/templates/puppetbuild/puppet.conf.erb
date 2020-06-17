@@ -1,0 +1,10 @@
+[master]
+dns_alt_names=<%= @master_cert_name %>, puppet
+node_terminus = exec
+external_nodes = /opt/nodeclassifier/enc.rb
+
+[main]
+certname = <%= @master_cert_name %>
+server = <%= @master_hostname %>
+environment = production
+runinterval = 1h

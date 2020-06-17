@@ -1,0 +1,9 @@
+---
+puppetbuild::lb::worker_members:
+  - 'puppetserver1'
+  - 'puppetserver2'
+puppetbuild::lb::puppetca_members:
+  - puppetserver1
+puppetbuild::puppetserver::non_ssl_port: '18140'
+puppetbuild::puppetserver::master_cert_name: 'puppetmaster.queiroz.car'
+puppetbuild::puppetserver::master_hostname: 'puppetmaster.queiroz.car'

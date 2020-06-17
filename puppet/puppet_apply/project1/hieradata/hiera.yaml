@@ -1,0 +1,14 @@
+---
+# Hiera 5 Global configuration file
+
+version: 5
+
+hierarchy:
+  - name: "Per-node data (yaml version)"
+    path: "nodes/%{::trusted.certname}"
+  - name: "Common and fallback data"
+    path: "common.yaml"
+
+defaults:
+  data_hash: yaml_data
+  datadir: /vagrant/puppetbuild/hieradata
