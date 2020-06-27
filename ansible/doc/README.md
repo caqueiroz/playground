@@ -2,7 +2,7 @@
 
 ## configurations
 
-**1) disabling host key checking from ansible controller machine **
+**1 disabling host key checking from ansible controller machine**
 
 * Inventory:
 > ansible_ssh_common_args='-o StrictHostKeyChecking=no'
