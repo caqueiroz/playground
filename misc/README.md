@@ -24,8 +24,10 @@ endif
 **3) Getting the CA and server certificate (pub) using openssl***
 ```
 openssl s_client -connect citrix.blablabla.com:443 --showcerts | sed -n '/BEGIN/,/END/p'
-
+```
 > automatic way to separate each cert dumped into its respective file```
+
 ```
 openssl s_client -showcerts -verify 5 -connect citrix.tradition.com:443 < /dev/null | awk '/BEGIN/,/END/{ if(/BEGIN/){a++}; out="cert"a".pem"; print >out}'
+
 ```
