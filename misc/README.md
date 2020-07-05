@@ -23,5 +23,5 @@ endif
 ```
 **3) Getting the CA and server certificate (pub) using openssl***
 ```
-openssl s_client -connect citrix.blablabla.com:443 --showcerts
+openssl s_client -connect citrix.blablabla.com:443 --showcerts | sed -n '/BEGIN/,/END/p'
 ```
