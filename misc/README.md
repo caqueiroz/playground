@@ -21,3 +21,6 @@ endif
 ```
 @ $(foreach tag,$(TAG_ARGS), echo $tag);)
 ```
+**3) Getting the CA and server certificate (pub) using openssl***
+```openssl s_client -connect citrix.blablabla.com:443 --showcerts
+```
