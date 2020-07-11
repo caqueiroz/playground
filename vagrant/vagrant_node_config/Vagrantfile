@@ -53,11 +53,11 @@ Vagrant.configure(2) do |config|
       node.vm.hostname = node_config[:name]
       node.vm.box = node_config[:basebox]
       # Configure this machine (network)
-#      if node_config[:ip]
-#        node.vm.network "private_network", ip: node_config[:ip]
-#      else
+      if node_config[:ip]
+        node.vm.network "private_network", ip: node_config[:ip]
+      else
         node.vm.network "private_network", type: "dhcp"
-#      end
+      end
       node.hostmanager.aliases = node_config[:aliases] if node_config[:aliases]
       if node_config[:memory]
         config.vm.provider "virtualbox" do |vb|
