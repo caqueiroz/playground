@@ -9,13 +9,29 @@
     - puppetca.lab1
 
 - :name: devops01
-  :basebox: bento/centos-7
+  :basebox: centos/7
   :bootstrap: centos7_devops.sh 
   :memory: 4096
+  :ip: 172.28.128.101
+  :forward:
+    - ["8080", "8080"]
+    - ["3000", "3000"]
   :cpus: 4 
+  :autostart: true
   :aliases:
     - git 
     - jenkins
+
+- :name: devops02
+  :basebox: ubuntu/xenial64
+  :bootstrap: ubuntu_devops.sh
+  :memory: 4096
+  :ip: 172.28.128.102
+  :forward:
+    - ["8081", "8080"]
+    - ["3001", "3000"]
+  :cpus: 4
+  :autostart: true
 
 - :name: kub-master01
   :basebox: ubuntu/xenial64
@@ -39,4 +55,11 @@
   :ip: 192.168.200.103
   :cpus: 2
   :memory: 3075 
+
+- :name: microk8s 
+  :basebox: ubuntu/xenial64
+  :bootstrap: ubuntu.sh
+  :cpus: 2
+  :memory: 4096 
+  :ip: 172.28.128.100
 

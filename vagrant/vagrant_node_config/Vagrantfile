@@ -53,6 +53,7 @@ Vagrant.configure(2) do |config|
       # Configure this machine (name and specs)
       node.vm.hostname = node_config[:name]
       node.vm.box = node_config[:basebox]
+      node.ssh.insert_key = false
       # Configure this machine (network)
       if node_config[:ip]
         node.vm.network "private_network", ip: node_config[:ip]
@@ -61,7 +62,7 @@ Vagrant.configure(2) do |config|
       end
       if node_config[:forward]
         node_config[:forward].each do |redir_port|
-          node.vm.network "forwarded_port", guest: "#{redir_port}", host: "#{redir_port}"
+          node.vm.network "forwarded_port", guest: "#{redir_port[1]}", host: "#{redir_port[0]}"
         end
       end
       node.hostmanager.aliases = node_config[:aliases] if node_config[:aliases]
