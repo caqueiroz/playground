@@ -17,7 +17,6 @@
     - ["8080", "8080"]
     - ["3000", "3000"]
   :cpus: 4 
-  :autostart: true
   :aliases:
     - git 
     - jenkins
@@ -28,10 +27,22 @@
   :memory: 4096
   :ip: 172.28.128.102
   :forward:
-    - ["8081", "8080"]
-    - ["3001", "3000"]
-  :cpus: 4
+    - ["8080", "8080"]
+    - ["3000", "3000"]
+  :cpus: 2 
   :autostart: true
+
+- :name: dockerlabs01 
+  :basebox: ubuntu/xenial64
+  :bootstrap: ubuntu_devops.sh
+  :memory: 4096
+  :ip: 172.28.128.103
+  :forward:
+    - ["8082", "80"]
+    - ["3002", "3000"]
+  :cpus: 2
+
+
 
 - :name: kub-master01
   :basebox: ubuntu/xenial64
@@ -56,9 +67,9 @@
   :cpus: 2
   :memory: 3075 
 
-- :name: microk8s 
+- :name: k8s01
   :basebox: ubuntu/xenial64
-  :bootstrap: ubuntu.sh
+  :bootstrap: ubuntu_microk8s.sh
   :cpus: 2
   :memory: 4096 
   :ip: 172.28.128.100
