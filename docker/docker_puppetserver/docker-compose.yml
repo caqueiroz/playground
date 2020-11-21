@@ -1,0 +1,23 @@
+version '2'
+network:
+  puppet:
+    external: true
+volumes:
+  puppet-code:
+    driver: local
+  puppet-ssl:
+    driver: local
+  puppet-serverdata:
+    driver: local
+  
+services:
+  puppet:
+    container_name: puppet
+    hostname: puppet
+    image: puppet/puppetserver
+    ports:
+      - 8140
+    volumes:
+      - puppet-code:/etc/puppetlabs/code/
+      - puppet-ssl:/etc/puppetlabs/puppet/ssl/
+      - puppet-serverdata:/opt/puppetlabs/server/data/puppetserver/
