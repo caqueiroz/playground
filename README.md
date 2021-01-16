@@ -1,2 +1,1 @@
-# playground
-Docker, Kubernetes, Jenkins, Ansible and more
+My playground
